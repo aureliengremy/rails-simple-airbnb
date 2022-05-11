@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All the Flats</h1>
+
+
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card mb-4">
+  <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200" class="card-img-top" alt="picture of the flat">
+  <div class="card-header">
+    <div class="name-and-address">
+      <h5 class="card-title"><%= flat.name %></h5>
+      <p><%= flat.address %></p>
+    </div>
+    <div class="price-and-capacity">
+      <%= flat.price_per_night %>
+      <%= flat.number_of_guests %>
+    </div>
+  </div>
+  <div class="card-body justify-content-between">
+        <%= link_to 'Show', flat, class:'link-primary' %>
+        <%= link_to 'Edit', edit_flat_path(flat), class:'link-warning' %>
+        <%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' }, class:'link-danger' %>
+  </div>
+</div>
+    </div>
+
+
+    <% end %>
+  </div>
+
+
+<br>
+
+<%= link_to 'New Flat', new_flat_path %>
